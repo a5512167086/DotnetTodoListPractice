@@ -19,9 +19,9 @@ namespace PracticeProject.Repositories
         {
             var comments = _context.Comments.AsQueryable();
 
-            if (query.TodoItemId == null)
+            if (query.TodoItemId != null)
             {
-                comments = comments.Where(item => item.Title.Equals(query.TodoItemId));
+                comments = comments.Where(item => item.TodoItemId.Equals(query.TodoItemId));
             }
 
             if (!string.IsNullOrEmpty(query.SortBy) && query.SortBy.Equals("CreatedAt"))
